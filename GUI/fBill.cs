@@ -34,11 +34,11 @@ namespace GUI
             try
             {
                 gcBill.DataSource = BillBUS.Instance.GetListBillByDate(fromDate, toDate);
-                gvBill.Columns[0].Caption = "Mã hóa đơn";
-                gvBill.Columns[1].Caption = "Tên bàn";
-                gvBill.Columns[2].Caption = "Ngày vào";
-                gvBill.Columns[3].Caption = "Giảm giá";
-                gvBill.Columns[4].Caption = "Tổng tiền";
+                gvBill.Columns[0].Caption = "Bill ID";
+                gvBill.Columns[1].Caption = "Table number";
+                gvBill.Columns[2].Caption = "Date";
+                gvBill.Columns[3].Caption = "Discount";
+                gvBill.Columns[4].Caption = "Total";
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace GUI
             SplashScreenManager.ShowForm(typeof(WaitForm1));
             int id = (int)gvBill.GetRowCellValue(gvBill.FocusedRowHandle, gvBill.Columns[0]);
 
-            if (XtraMessageBox.Show("Xóa hóa đơn " + id + "?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (XtraMessageBox.Show("Delete bill " + id + "?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {
@@ -71,11 +71,11 @@ namespace GUI
                 {
                     btnShowBill_Click(sender, e);
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Xóa hóa đơn thành công", "Thông báo");
+                    XtraMessageBox.Show("Bill deleted", "Notification");
                     Log.WriteLog("delete Bill, ID = " + id);
                 }
                 else
-                    XtraMessageBox.Show("Không thể xóa hóa đơn", "Lỗi");
+                    XtraMessageBox.Show("Unable to delete bill", "Error");
             }
             btnRemove.Enabled = false;
         }

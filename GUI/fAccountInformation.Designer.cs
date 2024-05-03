@@ -55,7 +55,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(87, 18);
             this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Tên hiển thị";
+            this.labelControl2.Text = "Full name";
             // 
             // labelControl3
             // 
@@ -65,7 +65,7 @@
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(68, 18);
             this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "Mật khẩu";
+            this.labelControl3.Text = "Password";
             // 
             // labelControl4
             // 
@@ -75,7 +75,7 @@
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(99, 18);
             this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Mật khẩu mới";
+            this.labelControl4.Text = "New password";
             // 
             // labelControl5
             // 
@@ -85,7 +85,7 @@
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(134, 18);
             this.labelControl5.TabIndex = 0;
-            this.labelControl5.Text = "Nhập lại mật khẩu";
+            this.labelControl5.Text = "Confirm new password";
             // 
             // txtUserName
             // 
@@ -150,7 +150,7 @@
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(118, 43);
             this.btnAccept.TabIndex = 5;
-            this.btnAccept.Text = "Cập nhật";
+            this.btnAccept.Text = "Update";
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
@@ -162,7 +162,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(118, 43);
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Hủy";
+            this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // labelControl1
@@ -173,7 +173,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(107, 18);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Tên đăng nhập";
+            this.labelControl1.Text = "Username";
             // 
             // fAccountInformation
             // 
@@ -194,7 +194,7 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.labelControl2);
             this.Name = "fAccountInformation";
-            this.Text = "Thông tin tài khoản";
+            this.Text = "Account Information";
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDisplayName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();

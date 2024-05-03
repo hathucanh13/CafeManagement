@@ -7,8 +7,8 @@ go
 create table TableCoffee
 (
 	ID int identity primary key,
-	Name nvarchar(100) not null default N'Chưa đặt tên',
-	Status nvarchar(100) not null default N'Trống'
+	Name nvarchar(100) not null default N'None',
+	Status nvarchar(100) not null default N'Empty'
 )
 
 create table AccountType
@@ -32,14 +32,14 @@ go
 create table CategoryFood
 (
 	ID int identity not null primary key,
-	Name nvarchar(100) not null default N'Chưa đặt tên'
+	Name nvarchar(100) not null default N'None'
 )
 go
 
 create table Food
 (
 	ID int identity primary key,
-	Name nvarchar(100) not null default N'Chưa đặt tên',
+	Name nvarchar(100) not null default N'None',
 	CategoryID int not null,
 	Price int not null default 0
 
@@ -55,7 +55,7 @@ create table Bill
 	TableID int not null,
 	Discount int not null default 0,
 	TotalPrice int default 0,
-	Status int not null default 0 -- 1: Da thanh toan, 0: Chua thanh toan
+	Status int not null default 0 -- 1: Paid, 0: Not yet paid
 
 	foreign key (TableID) references TableCoffee(ID)
 )
@@ -73,15 +73,15 @@ create table BillInfo
 )
 go
 
-insert AccountType (TypeName) values (N'Quản lý')
-insert AccountType (TypeName) values (N'Nhân viên')
+insert AccountType (TypeName) values (N'Manager')
+insert AccountType (TypeName) values (N'Employee')
 
 insert into Account (UserName, DisplayName, Password, TypeID)
-values ('admin', 'Quản lý', 'admin', 1)
+values ('admin', 'Manager', 'admin', 1)
 go
 
 insert into Account(UserName, DisplayName, Password, TypeID)
-values ('staff', 'Nhân viên' ,'staff', 2)
+values ('staff', 'Employee' ,'staff', 2)
 go
 
 -- add information into TableCoffee
@@ -89,27 +89,27 @@ declare @i int = 1
 while @i <= 30
 begin
 	insert into TableCoffee(Name)
-	values (N'Bàn ' + CAST(@i as nvarchar(100)))
+	values (N'Table ' + CAST(@i as nvarchar(100)))
 	set @i = @i + 1
 end
 go
 
 -- add information into Category
-insert into CategoryFood (Name) values (N'Cà phê')
-insert into CategoryFood (Name) values (N'Ăn vặt')
-insert into CategoryFood (Name) values (N'Thức uống khác')
-insert into CategoryFood (Name) values (N'Nước ép trái cây')
+insert into CategoryFood (Name) values (N'Coffee')
+insert into CategoryFood (Name) values (N'Snack')
+insert into CategoryFood (Name) values (N'Beverage')
+insert into CategoryFood (Name) values (N'Fruit juice')
 go
 
 -- add information into Food
-insert into Food (Name, CategoryID, Price) values (N'Cà phê đá', 1, 10000)
-insert into Food (Name, CategoryID, Price) values (N'Cà phê sữa', 1, 12000)
-insert into Food (Name, CategoryID, Price) values (N'Mì cay', 2, 25000)
+insert into Food (Name, CategoryID, Price) values (N'Iced Coffee', 1, 10000)
+insert into Food (Name, CategoryID, Price) values (N'Milk Coffee', 1, 12000)
+insert into Food (Name, CategoryID, Price) values (N'Noodle', 2, 25000)
 insert into Food (Name, CategoryID, Price) values (N'Sushi', 2, 15000)
 insert into Food (Name, CategoryID, Price) values (N'7up', 3, 16000)
-insert into Food (Name, CategoryID, Price) values (N'Sữa tươi', 3, 16000)
-insert into Food (Name, CategoryID, Price) values (N'Sinh tố cam', 4, 14000)
-insert into Food (Name, CategoryID, Price) values (N'Sinh tố dâu', 4, 10000)
+insert into Food (Name, CategoryID, Price) values (N'Milk', 3, 16000)
+insert into Food (Name, CategoryID, Price) values (N'Orange juice', 4, 14000)
+insert into Food (Name, CategoryID, Price) values (N'Strawberry juice', 4, 10000)
 go
 
 -- add information into Bill
@@ -328,9 +328,9 @@ begin
 	select @count = COUNT(*) from BillInfo where BillID = @billID
 
 	if (@count > 0)
-		update TableCoffee set Status = N'Có người' where ID = @tableID
+		update TableCoffee set Status = N'Occupied' where ID = @tableID
 	else
-		update TableCoffee set Status = N'Trống' where ID = @tableID
+		update TableCoffee set Status = N'Empty' where ID = @tableID
 end
 go
 
@@ -345,7 +345,7 @@ begin
 	declare @amount int = 0
 	select @amount = COUNT(*) from Bill where TableID = @tableID and Status = 0
 	if (@amount = 0)
-		update TableCoffee set Status = N'Trống' where ID = @tableID
+		update TableCoffee set Status = N'Empty' where ID = @tableID
 end
 GO
 
@@ -364,7 +364,7 @@ begin
 	select @count = COUNT(*) from BillInfo as bi, Bill as b where b.ID = bi.BillID and b.ID = @BillID and b.status = 0
 
 	if (@count = 0)
-		update TableCoffee set Status = N'Trống' where ID = @TableID
+		update TableCoffee set Status = N'Empty' where ID = @TableID
 end
 go
 
@@ -434,7 +434,7 @@ create proc USP_DeleteTableFood
 @ID int
 as begin
 	declare @count int = 0
-	select @count = COUNT(*) from TableCoffee where ID = @ID and Status = N'Trống'
+	select @count = COUNT(*) from TableCoffee where ID = @ID and Status = N'Empty'
 
 	if (@count <> 0)
 	begin
@@ -460,14 +460,14 @@ BEGIN
 	IF (@isTable1Null = 0 AND @isTable2Null > 0)
 		BEGIN
 			UPDATE dbo.Bill SET TableID = @TableID1 WHERE ID = @isTable2Null
-			UPDATE dbo.TableCoffee SET Status = N'Có người' WHERE ID = @TableID1
-			UPDATE dbo.TableCoffee SET Status = N'Trống' WHERE ID = @TableID2
+			UPDATE dbo.TableCoffee SET Status = N'Occupied' WHERE ID = @TableID1
+			UPDATE dbo.TableCoffee SET Status = N'Empty' WHERE ID = @TableID2
         END
 	ELSE IF (@isTable1Null > 0 AND @isTable2Null = 0)
 		BEGIN
 			UPDATE dbo.Bill SET TableID = @TableID2 WHERE Status = 0 AND ID = @isTable1Null
-			UPDATE dbo.TableCoffee SET Status = N'Có người' WHERE ID = @TableID2
-			UPDATE dbo.TableCoffee SET Status = N'Trống' WHERE ID = @TableID1
+			UPDATE dbo.TableCoffee SET Status = N'Occupied' WHERE ID = @TableID2
+			UPDATE dbo.TableCoffee SET Status = N'Empty' WHERE ID = @TableID1
         END
     ELSE IF (@isTable1Null > 0 AND @isTable2Null > 0)
 		BEGIN
@@ -526,7 +526,7 @@ AS
 				UPDATE dbo.BillInfo SET BillID = @UnCheckBillID2 WHERE ID = @BillInfoID
 				DELETE dbo.Bill WHERE ID = @UnCheckBillID1
 
-				UPDATE dbo.TableCoffee SET STATUS = N'Trống' WHERE ID = @TableID1
+				UPDATE dbo.TableCoffee SET STATUS = N'Empty' WHERE ID = @TableID1
 			END
     END
 GO

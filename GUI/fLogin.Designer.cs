@@ -67,7 +67,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(101, 18);
             this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Tên đăng nhập";
+            this.labelControl1.Text = "Username";
             // 
             // labelControl2
             // 
@@ -76,7 +76,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(61, 18);
             this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Mật khẩu";
+            this.labelControl2.Text = "Password";
             // 
             // btnLogin
             // 
@@ -86,7 +86,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(96, 39);
             this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Text = "Log in";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnExit
@@ -98,7 +98,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(96, 39);
             this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Thoát";
+            this.btnExit.Text = "Exit";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // fLogin
@@ -118,7 +118,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng nhập";
+            this.Text = "Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();

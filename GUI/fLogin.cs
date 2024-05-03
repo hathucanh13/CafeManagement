@@ -37,12 +37,12 @@ namespace GUI
                 else
                 {
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                    XtraMessageBox.Show("Incorrect username and/or password");
                 }
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show("Lỗi: " + ex);
+                XtraMessageBox.Show("Error: " + ex);
             }
         }
 
@@ -53,7 +53,7 @@ namespace GUI
 
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (XtraMessageBox.Show("Bạn có thật sự muốn thoát?", "Thông báo", MessageBoxButtons.OKCancel) != DialogResult.OK)
+            if (XtraMessageBox.Show("Are you sure you want to exit?", "Notification", MessageBoxButtons.OKCancel) != DialogResult.OK)
                 e.Cancel = true;
         }
     }

@@ -39,20 +39,20 @@ namespace GUI
             string userName = txtUserName.Text;
 
             if (!newPass.Equals(retypePass))
-                MessageBox.Show("Mật khẩu nhập lại không đúng");
+                MessageBox.Show("Incorrect password");
             else
             {
                 SplashScreenManager.ShowForm(typeof(WaitForm1));
                 if (AccountBUS.Instance.UpdateInformation(userName, displayName, password, newPass))
                 {
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Cập nhật thành công");
+                    XtraMessageBox.Show("Updated!");
                     Log.WriteLog("change account's information");
                 }
                 else
                 {
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Vui lòng điền đúng mật khẩu");
+                    XtraMessageBox.Show("Please enter the correct password");
                 }
             }
         }

@@ -48,7 +48,7 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(82, 35);
             this.btnReset.TabIndex = 2;
-            this.btnReset.Text = "Hủy";
+            this.btnReset.Text = "Cancel";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // openFileDialog
@@ -63,7 +63,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 18);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Danh sách file";
+            this.label1.Text = "Files";
             // 
             // label2
             // 
@@ -73,7 +73,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 18);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Nội dung";
+            this.label2.Text = "Content";
             // 
             // meContent
             // 
@@ -111,7 +111,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReset);
             this.Name = "fLog";
-            this.Text = "Hệ thống";
+            this.Text = "System";
             ((System.ComponentModel.ISupportInitialize)(this.meContent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lsbListFiles)).EndInit();
             this.ResumeLayout(false);

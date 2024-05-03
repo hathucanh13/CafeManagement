@@ -43,7 +43,7 @@ namespace GUI
 
                 switch (item.Status)
                 {
-                    case "Có người":
+                    case "Occupied":
                         button.ImageIndex = 0;
                         break;
                     default:
@@ -103,7 +103,7 @@ namespace GUI
             {
                 if (currentClickButton != null)
                 {
-                    if ((currentClickButton.Tag as Table).Status == "Có người")
+                    if ((currentClickButton.Tag as Table).Status == "Occupied")
                         currentClickButton.ImageIndex = 0;
                     else
                         currentClickButton.ImageIndex = -1;
@@ -137,7 +137,7 @@ namespace GUI
             Table table = lsvBill.Tag as Table;
             if (table == null)
             {
-                XtraMessageBox.Show("Hãy chọn bàn");
+                XtraMessageBox.Show("Choose table");
                 return;
             }
 
@@ -149,7 +149,7 @@ namespace GUI
 
             if (lkedPickFood.EditValue == null)
             {
-                XtraMessageBox.Show("Hãy chọn món");
+                XtraMessageBox.Show("Choose food");
                 return;
             }
             int foodID = (int)lkedPickFood.EditValue;
@@ -174,7 +174,7 @@ namespace GUI
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show("Eror: " + ex);
+                    XtraMessageBox.Show("Error: " + ex);
                 }
             }
             ShowBill(table.ID);
@@ -188,15 +188,15 @@ namespace GUI
             int id2;
             if (lkedPickTable.EditValue == null)
             {
-                XtraMessageBox.Show("Hãy chọn bàn muốn chuyển");
+                XtraMessageBox.Show("Pick table to change");
                 return;
             }
             else
                 id2 = (int)lkedPickTable.EditValue;
 
-            if (XtraMessageBox.Show(string.Format("Bạn có thật sự muốn chuyển {0} sang {1}?",
+            if (XtraMessageBox.Show(string.Format("Change {0} to {1}?",
                 (lsvBill.Tag as Table).Name, lkedPickTable.Text),
-                "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                "Notification", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 Log.WriteLog("change " + (lsvBill.Tag as Table).Name + " to " + lkedPickTable.Text);
                 TableBUS.Instance.SwitchTable(id1, id2);
@@ -219,15 +219,15 @@ namespace GUI
             int id2;
             if (lkedPickTable.EditValue == null)
             {
-                XtraMessageBox.Show("Hãy chọn bàn cần gộp");
+                XtraMessageBox.Show("Pick table to merge");
                 return;
             }
             else
                 id2 = (int)lkedPickTable.EditValue;
 
-            if (XtraMessageBox.Show(string.Format("Bạn có thật sự muốn gộp {0} sang {1}?",
+            if (XtraMessageBox.Show(string.Format("Merge {0} to {1}?",
                 (lsvBill.Tag as Table).Name, lkedPickTable.Text),
-                "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                "Noti", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 Log.WriteLog("merge " + (lsvBill.Tag as Table).Name + " to " + lkedPickTable.Text);
                 TableBUS.Instance.MergeTable(id1, id2);
@@ -265,8 +265,8 @@ namespace GUI
             double finalPrice = totalPrice - (totalPrice / 100) * discount;
             if (billID != -1)
             {
-                if (XtraMessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn cho {0}?", table.Name),
-                    "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (XtraMessageBox.Show(string.Format("Paying for {0}?", table.Name),
+                    "Noti", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     // Print bill
                     List<TempBill> lstTempBill = new List<TempBill>();

@@ -29,11 +29,11 @@ namespace GUI
             try
             {
                 gcFood.DataSource = FoodBUS.Instance.GetAllFood();
-                gvFood.Columns[0].Caption = "Mã số";
+                gvFood.Columns[0].Caption = "ID";
                 gvFood.Columns[0].OptionsColumn.AllowEdit = false;
-                gvFood.Columns[1].Caption = "Tên";
-                gvFood.Columns[2].Caption = "Danh mục";
-                gvFood.Columns[3].Caption = "Đơn giá";
+                gvFood.Columns[1].Caption = "Name";
+                gvFood.Columns[2].Caption = "Category";
+                gvFood.Columns[3].Caption = "Price";
             }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace GUI
                 myLookup.DataSource = CategoryBUS.Instance.GetAllCategory();
                 myLookup.DisplayMember = "Name";
                 myLookup.ValueMember = "ID";
-                myLookup.NullText = "-- Chọn danh mục --";
+                myLookup.NullText = "-- Pick category --";
                 gvFood.Columns[2].ColumnEdit = myLookup;
             }
             catch (Exception ex)
@@ -69,27 +69,27 @@ namespace GUI
             string name = view.GetRowCellValue(rowHandle, view.Columns[1]).ToString();
             if (name == "")
             {
-                XtraMessageBox.Show("Tên món không hợp lệ");
+                XtraMessageBox.Show("Invalid name");
                 return;
             }
 
             string categoryID = view.GetRowCellValue(rowHandle, view.Columns[2]).ToString();
             if (categoryID == "")
             {
-                XtraMessageBox.Show("Hãy chọn danh mục");
+                XtraMessageBox.Show("Please pick a category");
                 return;
             }
 
             string priceTemp = view.GetRowCellValue(rowHandle, view.Columns[3]).ToString();
             if (priceTemp == "")
             {
-                XtraMessageBox.Show("Đơn giá không được bỏ trống");
+                XtraMessageBox.Show("Price must not be null");
                 return;
             }
             int price = int.Parse(priceTemp);
             if (price <= 0 || price > 10000000)
             {
-                XtraMessageBox.Show("Đơn giá không hợp lệ");
+                XtraMessageBox.Show("Invalid price");
                 return;
             }
 
@@ -104,7 +104,7 @@ namespace GUI
             else
             {
                 SplashScreenManager.CloseForm();
-                XtraMessageBox.Show("Thêm món mới thất bại", "Lỗi");
+                XtraMessageBox.Show("Failed to add new Food", "Error");
             }
         }
 
@@ -120,27 +120,27 @@ namespace GUI
             string name = view.GetRowCellValue(rowHandle, view.Columns[1]).ToString();
             if (name == "")
             {
-                XtraMessageBox.Show("Tên món không hợp lệ");
+                XtraMessageBox.Show("Invalid name");
                 return;
             }
 
             string categoryID = view.GetRowCellValue(rowHandle, view.Columns[2]).ToString();
             if (categoryID == "")
             {
-                XtraMessageBox.Show("Hãy chọn danh mục");
+                XtraMessageBox.Show("Please pick a category");
                 return;
             }
 
             string priceTemp = view.GetRowCellValue(rowHandle, view.Columns[3]).ToString();
             if (priceTemp == "")
             {
-                XtraMessageBox.Show("Đơn giá không được bỏ trống");
+                XtraMessageBox.Show("Price must not be null");
                 return;
             }
             int price = int.Parse(priceTemp);
             if (price <= 0 || price > 1000000)
             {
-                XtraMessageBox.Show("Đơn giá không hợp lệ");
+                XtraMessageBox.Show("Invalid price");
                 return;
             }
 
@@ -157,7 +157,7 @@ namespace GUI
             else
             {
                 SplashScreenManager.CloseForm();
-                XtraMessageBox.Show("Sửa thông tin món thất bại\n Không thể thay đổi thông tin món hiện hành", "Lỗi");
+                XtraMessageBox.Show(" Fail to update food\n Unable to update food", "Error");
             }
         }
 
@@ -172,18 +172,18 @@ namespace GUI
             int id = (int)gvFood.GetRowCellValue(gvFood.FocusedRowHandle, gvFood.Columns[0]);
             string name = gvFood.GetRowCellValue(gvFood.FocusedRowHandle, gvFood.Columns[1]).ToString();
 
-            if (XtraMessageBox.Show("Xóa " + name + "?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (XtraMessageBox.Show("Delete " + name + "?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (FoodBUS.Instance.DeleteFood(id))
                 {
                     SplashScreenManager.ShowForm(typeof(WaitForm1));
                     LoadFoodToGridControl();
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Đã xóa " + name, "Thông báo");
+                    XtraMessageBox.Show("Deleted " + name, " Notification");
                     Log.WriteLog("delete Food: " + name);
                 }
                 else
-                    XtraMessageBox.Show("Không thể xóa món hiện hành", "Lỗi");
+                    XtraMessageBox.Show("Unable to delete food", "Error");
             }
             btnRemove.Enabled = false;
         }

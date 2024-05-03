@@ -27,9 +27,9 @@ namespace GUI
             try
             {
                 gcCategory.DataSource = CategoryBUS.Instance.GetAllCategory();
-                gvCategory.Columns[0].Caption = "Mã danh mục";
+                gvCategory.Columns[0].Caption = "Category ID";
                 gvCategory.Columns[0].OptionsColumn.AllowEdit = false;
-                gvCategory.Columns[1].Caption = "Tên danh mục";
+                gvCategory.Columns[1].Caption = "Category name: ";
             }
             catch (Exception ex)
             {
@@ -52,7 +52,7 @@ namespace GUI
             string name = view.GetRowCellValue(rowHandle, view.Columns[1]).ToString();
             if (name == "")
             {
-                XtraMessageBox.Show("Tên danh mục không hợp lệ");
+                XtraMessageBox.Show("Invalid category name!");
                 return;
             }
 
@@ -64,7 +64,7 @@ namespace GUI
                 Log.WriteLog("add new Category: " + name);
             }
             else
-                XtraMessageBox.Show("Thêm danh mục thất bại", "Lỗi");
+                XtraMessageBox.Show("Unable to add new Category", "Error");
         }
 
         private void UpdateCategory(GridView view, int rowHandle)
@@ -79,7 +79,7 @@ namespace GUI
             string name = view.GetRowCellValue(rowHandle, view.Columns[1]).ToString();
             if (name == "")
             {
-                XtraMessageBox.Show("Tên danh mục không hợp lệ");
+                XtraMessageBox.Show("Invalid category name");
                 return;
             }
 
@@ -91,7 +91,7 @@ namespace GUI
                 Log.WriteLog("update Category: " + curName + " -> " + name);
             }
             else
-                XtraMessageBox.Show("Sửa danh mục thất bại", "Lỗi");
+                XtraMessageBox.Show("Failed to update category", "Error");
         }
 
         private void gcCategory_DoubleClick(object sender, EventArgs e)
@@ -105,18 +105,18 @@ namespace GUI
             string id = gvCategory.GetRowCellValue(gvCategory.FocusedRowHandle, gvCategory.Columns[0]).ToString();
             string name = gvCategory.GetRowCellValue(gvCategory.FocusedRowHandle, gvCategory.Columns[1]).ToString();
 
-            if (XtraMessageBox.Show("Xóa danh mục " + name + "?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (XtraMessageBox.Show("Delete this category " + name + "?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (CategoryBUS.Instance.DeteleCategory(int.Parse(id)))
                 {
                     SplashScreenManager.ShowForm(typeof(WaitForm1));
                     LoadCategory();
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Xóa danh mục thành công", "Thông báo");
+                    XtraMessageBox.Show("Category deleted", "Notification");
                     Log.WriteLog("delete Category: " + name);
                 }
                 else
-                    XtraMessageBox.Show("Xóa danh mục thất bại\nDanh mục được xóa phải rỗng", "Lỗi");
+                    XtraMessageBox.Show("Failed to delete category\nCategory must be empty", "Error");
             }
             btnRemove.Enabled = false;
         }

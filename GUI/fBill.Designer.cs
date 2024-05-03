@@ -100,7 +100,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(56, 18);
             this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Từ ngày";
+            this.labelControl1.Text = "From";
             // 
             // labelControl2
             // 
@@ -110,7 +110,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(63, 18);
             this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Đến ngày";
+            this.labelControl2.Text = "To";
             // 
             // btnShowBill
             // 
@@ -122,7 +122,7 @@
             this.btnShowBill.Name = "btnShowBill";
             this.btnShowBill.Size = new System.Drawing.Size(68, 33);
             this.btnShowBill.TabIndex = 5;
-            this.btnShowBill.Text = "Xem";
+            this.btnShowBill.Text = "Show";
             this.btnShowBill.Click += new System.EventHandler(this.btnShowBill_Click);
             // 
             // btnRemove
@@ -135,7 +135,7 @@
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(68, 33);
             this.btnRemove.TabIndex = 5;
-            this.btnRemove.Text = "Xóa";
+            this.btnRemove.Text = "Delete";
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // fBill
@@ -151,7 +151,7 @@
             this.Controls.Add(this.deFromDate);
             this.Controls.Add(this.gcBill);
             this.Name = "fBill";
-            this.Text = "Danh sách hóa đơn";
+            this.Text = "All bills";
             this.Load += new System.EventHandler(this.fBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBill)).EndInit();

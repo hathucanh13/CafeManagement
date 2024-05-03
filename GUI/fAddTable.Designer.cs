@@ -41,7 +41,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(26, 19);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Bàn";
+            this.labelControl1.Text = "Table";
             // 
             // txtTable
             // 
@@ -60,7 +60,7 @@
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(66, 32);
             this.btnAccept.TabIndex = 2;
-            this.btnAccept.Text = "Thêm";
+            this.btnAccept.Text = "Add";
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // fAddTable
@@ -75,7 +75,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "fAddTable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thêm bàn";
+            this.Text = "Add Table";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fAddTable_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.txtTable.Properties)).EndInit();
             this.ResumeLayout(false);

@@ -17,14 +17,14 @@ namespace GUI
         {
             if (txtTable.Text == "")
             {
-                XtraMessageBox.Show("Hãy nhập dữ liệu!!");
+                XtraMessageBox.Show("Please enter information!!");
                 return;
             }
 
             int temp;
             if (int.TryParse(txtTable.Text, out temp) == false)
             {
-                XtraMessageBox.Show("Dữ liệu không hợp lệ!!");
+                XtraMessageBox.Show("invalid information!!");
                 txtTable.Focus();
                 return;
             }

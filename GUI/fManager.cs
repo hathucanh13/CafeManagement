@@ -52,7 +52,7 @@ namespace GUI
         private void fManager_Load(object sender, EventArgs e)
         {
             ribbonPageGroupSystem.Text = loginAccount.DisplayName;
-            bsTextDate.Caption = "Chào " + loginAccount.DisplayName;
+            bsTextDate.Caption = "Hello " + loginAccount.DisplayName;
         }
 
         private void DisplayAccount(int type)

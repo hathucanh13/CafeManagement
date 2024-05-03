@@ -35,9 +35,9 @@ namespace GUI
             try
             {
                 gcAccount.DataSource = AccountBUS.Instance.GetAllAcount();
-                gvAccount.Columns[0].Caption = "Tên đăng nhập";
-                gvAccount.Columns[1].Caption = "Tên hiển thị";
-                gvAccount.Columns[2].Caption = "Loại tài khoản";
+                gvAccount.Columns[0].Caption = "Username";
+                gvAccount.Columns[1].Caption = "Full name";
+                gvAccount.Columns[2].Caption = "Account";
             }
             catch (Exception ex)
             {
@@ -50,7 +50,7 @@ namespace GUI
                 myLookup.DataSource = AccountTypeBUS.Instance.GetAllAccountType();
                 myLookup.DisplayMember = "TypeName";
                 myLookup.ValueMember = "ID";
-                myLookup.NullText = "-- Chọn loại tài khoản --";
+                myLookup.NullText = "-- This account is for --";
                 gvAccount.Columns[2].ColumnEdit = myLookup;
             }
             catch (Exception ex)
@@ -102,7 +102,7 @@ namespace GUI
             string userName = view.GetRowCellValue(rowHandle, view.Columns[0]).ToString();
             if (userName == "" || CheckCharacter(userName) == false)
             {
-                XtraMessageBox.Show("Tên tài khoản không hợp lệ");
+                XtraMessageBox.Show("Invalid username");
                 return;
             }
 
@@ -111,7 +111,7 @@ namespace GUI
                 if (userName.Equals(view.GetRowCellValue(i, view.Columns[0]).ToString()))
                 {
                     view.SetRowCellValue(view.FocusedRowHandle, view.Columns[0], "");
-                    XtraMessageBox.Show("Tên tài khoản này đã được sử dụng!");
+                    XtraMessageBox.Show("This username is already taken!");
                     return;
                 }
             }
@@ -119,14 +119,14 @@ namespace GUI
             string displayName = view.GetRowCellValue(rowHandle, view.Columns[1]).ToString();
             if (displayName == "")
             {
-                XtraMessageBox.Show("Tên hiển thị không hợp lệ");
+                XtraMessageBox.Show("Invalid name!");
                 return;
             }
 
             int accountType;
             if (int.TryParse(view.GetRowCellValue(rowHandle, view.Columns[2]).ToString(), out accountType) == false)
             {
-                XtraMessageBox.Show("Hãy chọn loại tài khoản");
+                XtraMessageBox.Show("Please choose your account type");
                 return;
             }
 
@@ -135,11 +135,11 @@ namespace GUI
                 SplashScreenManager.ShowForm(typeof(WaitForm1));
                 LoadAcount();
                 SplashScreenManager.CloseForm();
-                XtraMessageBox.Show("Thêm tài khoản mới thành công\n Mật khẩu mặc định là '0'\n Hãy đổi mật khẩu để bảo mật tài khoản", "Thông báo");
+                XtraMessageBox.Show("New account added!\n Default password is '0'\n Please update your password", "Notifications");
                 Log.WriteLog("add new Account: " + userName);
             }
             else
-                XtraMessageBox.Show("Thêm tài khoản mới thất bại", "Lỗi");
+                XtraMessageBox.Show("Failed to add new account", "Error");
         }
 
         private void gcAccount_DoubleClick(object sender, EventArgs e)
@@ -156,22 +156,22 @@ namespace GUI
             string userName = gvAccount.GetRowCellValue(gvAccount.FocusedRowHandle, gvAccount.Columns[0]).ToString();
             if (loginUserName.Equals(userName))
             {
-                XtraMessageBox.Show("Không thể xóa tài khoản hiện hành!!!");
+                XtraMessageBox.Show("Cannot delete current account!!!");
                 return;
             }
 
-            if (XtraMessageBox.Show("Xóa " + userName + "?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (XtraMessageBox.Show("Delete " + userName + "?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (AccountBUS.Instance.Delete(userName))
                 {
                     SplashScreenManager.ShowForm(typeof(WaitForm1));
                     LoadAcount();
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Xóa tài khoản thành công");
+                    XtraMessageBox.Show("Account deleted!");
                     Log.WriteLog("delete Account: " + userName);
                 }
                 else
-                    XtraMessageBox.Show("Xóa tài khoản thất bại", "Lỗi");
+                    XtraMessageBox.Show("Failed to delete account", "Error");
             }
             btnRemove.Enabled = false;
         }
@@ -187,11 +187,11 @@ namespace GUI
                     SplashScreenManager.ShowForm(typeof(WaitForm1));
                     LoadAcount();
                     SplashScreenManager.CloseForm();
-                    XtraMessageBox.Show("Đặt lại mật khẩu thành công\n Mật khẩu mặc định là '0'");
+                    XtraMessageBox.Show("Your password has been reset!\n Default password is '0'");
                     Log.WriteLog("set password for Account: " + userName);
                 }
                 else
-                    XtraMessageBox.Show("Đặt lại mật khẩu thất bại", "Lỗi");
+                    XtraMessageBox.Show("Failed to reset password", "Error");
             }
             btnResetPassword.Enabled = false;
         }

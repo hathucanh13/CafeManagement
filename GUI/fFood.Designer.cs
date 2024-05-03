@@ -71,7 +71,7 @@
             // 
             this.gvFood.GridControl = this.gcFood;
             this.gvFood.Name = "gvFood";
-            this.gvFood.NewItemRowText = "Thêm mới";
+            this.gvFood.NewItemRowText = "Add new";
             this.gvFood.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvFood.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvFood.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
@@ -110,7 +110,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Caption = "Xóa";
+            this.btnRemove.Caption = "Delete";
             this.btnRemove.Glyph = global::GUI.Properties.Resources.Close_2_icon;
             this.btnRemove.Id = 0;
             this.btnRemove.Name = "btnRemove";
@@ -118,7 +118,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Caption = "Tải lại";
+            this.btnRefresh.Caption = "Refresh";
             this.btnRefresh.Glyph = global::GUI.Properties.Resources.Button_Refresh_icon;
             this.btnRefresh.Id = 1;
             this.btnRefresh.Name = "btnRefresh";
@@ -173,8 +173,8 @@
             this.txtSearchFood.Name = "txtSearchFood";
             this.txtSearchFood.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchFood.Properties.Appearance.Options.UseFont = true;
-            this.txtSearchFood.Properties.NullText = "-- Tìm tên món ăn --";
-            this.txtSearchFood.Properties.NullValuePrompt = "-- Tìm tên món ăn --";
+            this.txtSearchFood.Properties.NullText = "-- Search food --";
+            this.txtSearchFood.Properties.NullValuePrompt = "-- Search food --";
             this.txtSearchFood.Size = new System.Drawing.Size(180, 24);
             this.txtSearchFood.TabIndex = 20;
             this.txtSearchFood.TextChanged += new System.EventHandler(this.txtSearchFood_TextChanged);
@@ -189,7 +189,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(67, 35);
             this.btnSearch.TabIndex = 21;
-            this.btnSearch.Text = "Tìm";
+            this.btnSearch.Text = "Search";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // fFood
@@ -206,7 +206,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fFood";
-            this.Text = "Thực đơn";
+            this.Text = "Menu";
             ((System.ComponentModel.ISupportInitialize)(this.gcFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

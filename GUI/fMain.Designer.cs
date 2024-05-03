@@ -114,22 +114,22 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Tên món";
+            this.columnHeader1.Text = "Name";
             this.columnHeader1.Width = 151;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Số lượng";
+            this.columnHeader2.Text = "Amount";
             this.columnHeader2.Width = 126;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Đơn giá";
+            this.columnHeader3.Text = "Price";
             this.columnHeader3.Width = 126;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Thành tiền";
+            this.columnHeader4.Text = "Total";
             this.columnHeader4.Width = 134;
             // 
             // labelControl3
@@ -142,7 +142,7 @@
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(99, 28);
             this.labelControl3.TabIndex = 41;
-            this.labelControl3.Text = "Đang chọn";
+            this.labelControl3.Text = "Choosing";
             // 
             // labelControl2
             // 
@@ -154,7 +154,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(86, 28);
             this.labelControl2.TabIndex = 41;
-            this.labelControl2.Text = "Có người";
+            this.labelControl2.Text = "Occupied";
             // 
             // labelControl1
             // 
@@ -164,7 +164,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(56, 18);
             this.labelControl1.TabIndex = 40;
-            this.labelControl1.Text = "Giảm giá";
+            this.labelControl1.Text = "Discount";
             // 
             // txtTotalPrice
             // 
@@ -186,7 +186,7 @@
             this.lkedPickTable.Properties.Appearance.Options.UseFont = true;
             this.lkedPickTable.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkedPickTable.Properties.NullText = "-- Chọn bàn --";
+            this.lkedPickTable.Properties.NullText = "-- Choose table --";
             this.lkedPickTable.Size = new System.Drawing.Size(142, 24);
             this.lkedPickTable.TabIndex = 38;
             // 
@@ -254,7 +254,7 @@
             this.btnChangeTable.Name = "btnChangeTable";
             this.btnChangeTable.Size = new System.Drawing.Size(66, 34);
             this.btnChangeTable.TabIndex = 33;
-            this.btnChangeTable.Text = "Chuyển";
+            this.btnChangeTable.Text = "Change";
             this.btnChangeTable.Click += new System.EventHandler(this.btnChangeTable_Click);
             // 
             // btnCheck
@@ -266,7 +266,7 @@
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(90, 64);
             this.btnCheck.TabIndex = 34;
-            this.btnCheck.Text = "Thanh toán";
+            this.btnCheck.Text = "Payment";
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // btnAddFood
@@ -278,7 +278,7 @@
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(114, 43);
             this.btnAddFood.TabIndex = 35;
-            this.btnAddFood.Text = "Thêm món";
+            this.btnAddFood.Text = "Add food";
             this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // lkedPickCategory
@@ -291,7 +291,7 @@
             this.lkedPickCategory.Properties.Appearance.Options.UseFont = true;
             this.lkedPickCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkedPickCategory.Properties.NullText = "-- Chọn danh mục --";
+            this.lkedPickCategory.Properties.NullText = "-- Pick category --";
             this.lkedPickCategory.Size = new System.Drawing.Size(189, 24);
             this.lkedPickCategory.TabIndex = 31;
             this.lkedPickCategory.EditValueChanged += new System.EventHandler(this.lkedPickCategory_EditValueChanged);
@@ -306,7 +306,7 @@
             this.lkedPickFood.Properties.Appearance.Options.UseFont = true;
             this.lkedPickFood.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkedPickFood.Properties.NullText = "-- Chọn món --";
+            this.lkedPickFood.Properties.NullText = "-- Pick food --";
             this.lkedPickFood.Size = new System.Drawing.Size(189, 24);
             this.lkedPickFood.TabIndex = 32;
             // 
@@ -326,7 +326,7 @@
             this.btnMergeTable.Name = "btnMergeTable";
             this.btnMergeTable.Size = new System.Drawing.Size(66, 34);
             this.btnMergeTable.TabIndex = 43;
-            this.btnMergeTable.Text = "Gộp";
+            this.btnMergeTable.Text = "Merge";
             this.btnMergeTable.Click += new System.EventHandler(this.btnMergeTable_Click);
             // 
             // fMain
@@ -339,7 +339,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "fMain";
-            this.Text = "Màn hình chính";
+            this.Text = "Main";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fMain_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

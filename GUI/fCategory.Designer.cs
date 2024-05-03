@@ -80,7 +80,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Caption = "Xóa";
+            this.btnRemove.Caption = "Delete";
             this.btnRemove.Glyph = global::GUI.Properties.Resources.Close_2_icon;
             this.btnRemove.Id = 0;
             this.btnRemove.Name = "btnRemove";
@@ -88,7 +88,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Caption = "Tải lại";
+            this.btnRefresh.Caption = "Refresh";
             this.btnRefresh.Glyph = global::GUI.Properties.Resources.Button_Refresh_icon;
             this.btnRefresh.Id = 2;
             this.btnRefresh.Name = "btnRefresh";
@@ -124,7 +124,7 @@
             // 
             // btn
             // 
-            this.btn.Caption = "Tải lại";
+            this.btn.Caption = "Refresh";
             this.btn.Glyph = global::GUI.Properties.Resources.Button_Refresh_icon;
             this.btn.Id = 1;
             this.btn.Name = "btn";
@@ -148,7 +148,7 @@
             // 
             this.gvCategory.GridControl = this.gcCategory;
             this.gvCategory.Name = "gvCategory";
-            this.gvCategory.NewItemRowText = "Thêm mới";
+            this.gvCategory.NewItemRowText = "Add new";
             this.gvCategory.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvCategory.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvCategory.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
@@ -165,7 +165,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(67, 35);
             this.btnSearch.TabIndex = 23;
-            this.btnSearch.Text = "Tìm";
+            this.btnSearch.Text = "Search";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearchCategory
@@ -177,8 +177,8 @@
             this.txtSearchCategory.Name = "txtSearchCategory";
             this.txtSearchCategory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchCategory.Properties.Appearance.Options.UseFont = true;
-            this.txtSearchCategory.Properties.NullText = "-- Tìm tên món ăn --";
-            this.txtSearchCategory.Properties.NullValuePrompt = "-- Tìm tên món ăn --";
+            this.txtSearchCategory.Properties.NullText = "-- Search food... --";
+            this.txtSearchCategory.Properties.NullValuePrompt = "-- Search food...--";
             this.txtSearchCategory.Size = new System.Drawing.Size(180, 24);
             this.txtSearchCategory.TabIndex = 22;
             this.txtSearchCategory.TextChanged += new System.EventHandler(this.txtSearchCategory_TextChanged);
@@ -197,7 +197,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "fCategory";
-            this.Text = "Danh mục";
+            this.Text = "Category";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCategory)).EndInit();

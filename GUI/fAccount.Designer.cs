@@ -82,7 +82,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Caption = "Xóa";
+            this.btnRemove.Caption = "Delete";
             this.btnRemove.Glyph = global::GUI.Properties.Resources.Close_2_icon;
             this.btnRemove.Id = 0;
             this.btnRemove.Name = "btnRemove";
@@ -98,7 +98,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Caption = "Tải lại";
+            this.btnRefresh.Caption = "Refresh";
             this.btnRefresh.Glyph = global::GUI.Properties.Resources.Button_Refresh_icon;
             this.btnRefresh.Id = 3;
             this.btnRefresh.Name = "btnRefresh";
@@ -134,7 +134,7 @@
             // 
             // barButtonItem2
             // 
-            this.barButtonItem2.Caption = "Tải lại";
+            this.barButtonItem2.Caption = "Refresh";
             this.barButtonItem2.Glyph = global::GUI.Properties.Resources.Button_Refresh_icon;
             this.barButtonItem2.Id = 1;
             this.barButtonItem2.Name = "barButtonItem2";
@@ -158,7 +158,7 @@
             // 
             this.gvAccount.GridControl = this.gcAccount;
             this.gvAccount.Name = "gvAccount";
-            this.gvAccount.NewItemRowText = "Thêm mới";
+            this.gvAccount.NewItemRowText = "Add new";
             this.gvAccount.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvAccount.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvAccount.OptionsBehavior.AllowIncrementalSearch = true;
@@ -187,8 +187,8 @@
             this.txtSearchAccount.Name = "txtSearchAccount";
             this.txtSearchAccount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchAccount.Properties.Appearance.Options.UseFont = true;
-            this.txtSearchAccount.Properties.NullText = "-- Tìm tên món ăn --";
-            this.txtSearchAccount.Properties.NullValuePrompt = "-- Tìm tên món ăn --";
+            this.txtSearchAccount.Properties.NullText = "-- Search... --";
+            this.txtSearchAccount.Properties.NullValuePrompt = "-- Search... --";
             this.txtSearchAccount.Size = new System.Drawing.Size(180, 24);
             this.txtSearchAccount.TabIndex = 24;
             this.txtSearchAccount.TextChanged += new System.EventHandler(this.txtSearchAccount_TextChanged);
@@ -207,7 +207,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.KeyPreview = true;
             this.Name = "fAccount";
-            this.Text = "Tài khoản";
+            this.Text = "Account";
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAccount)).EndInit();
